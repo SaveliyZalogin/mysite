@@ -19,7 +19,7 @@ from .apps.mainapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.login),
+    path('', views.user_login, name='login'),
     path('main/', views.index),
     path('about/', views.about),
     re_path(r'^news/(?P<news_id>\d+)$', views.news, name="news"),
