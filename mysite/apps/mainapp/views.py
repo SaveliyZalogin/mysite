@@ -53,7 +53,7 @@ def search(request):
         search_query = request.GET.get('search', '')
         posts = News.objects.filter(title__icontains=search_query)
     except:
-        pass
+        search_query = ''
 
     context = {
         'post_list': posts

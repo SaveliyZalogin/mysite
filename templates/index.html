@@ -17,7 +17,7 @@
               </button>
             </p>
             <div class="collapse" id="collapseExample">
-                <a class="nav flex-column">
+                <ul class="nav flex-column">
                     <li class="nav-item"><button class="btn btn-dark nav-btn"><a href="http://127.0.0.1:8000/main/" class="nav-link">Main</a></button></li>
                     <li class="nav-item"><button class="btn btn-dark nav-btn"><a href="http://127.0.0.1:8000/about/" class="nav-link">About us</a></button></li>
                     <li class="nav-item"><button class="btn btn-dark nav-btn"><a class="nav-link">Sponsors</a></button></li>
@@ -35,9 +35,9 @@
                         <input type="text" name="search">
                         <input type="submit">
                     </form>
-                    <a class="btn btn-dark" role="button" href="{% url 'login' %}" data-toggle="{{ logout }}">Log out</a>
+                    <a class="btn btn-dark nav-btn" role="button" href="{% url 'login' %}" data-toggle="{{ logout }}">Log out</a>
                 </ul>
-            </div>
+                </div>
 {#            <ul class="nav flex-column nav-pills">#}
 {#                <li class="nav-item"><button class="btn btn-dark nav-btn"><a class="nav-link">Main</a></button></li>#}
 {#                <li class="nav-item"><button class="btn btn-dark nav-btn"><a class="nav-link">About us</a></button></li>#}
