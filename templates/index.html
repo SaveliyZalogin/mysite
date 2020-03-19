@@ -17,7 +17,7 @@
               </button>
             </p>
             <div class="collapse" id="collapseExample">
-                <ul class="nav flex-column nav-pills">
+                <a class="nav flex-column">
                     <li class="nav-item"><button class="btn btn-dark nav-btn"><a href="http://127.0.0.1:8000/main/" class="nav-link">Main</a></button></li>
                     <li class="nav-item"><button class="btn btn-dark nav-btn"><a href="http://127.0.0.1:8000/about/" class="nav-link">About us</a></button></li>
                     <li class="nav-item"><button class="btn btn-dark nav-btn"><a class="nav-link">Sponsors</a></button></li>
@@ -31,11 +31,11 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                       </div>
                     </div>
-                    <form class="form-inline my-2 my-lg-0" action="{{ search }}" method="post">{% csrf_token %}
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <form action="{% url 'search' %}">
+                        <input type="text" name="search">
+                        <input type="submit">
                     </form>
-                    <a class="btn btn-dark" role="button" href="{% url 'login' %}">Log out</a>
+                    <a class="btn btn-dark" role="button" href="{% url 'login' %}" data-toggle="{{ logout }}">Log out</a>
                 </ul>
             </div>
 {#            <ul class="nav flex-column nav-pills">#}

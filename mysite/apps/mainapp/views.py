@@ -5,11 +5,14 @@ from django.contrib import auth
 from django.contrib.auth import authenticate
 from django.http import HttpResponseRedirect
 
-
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
-from .forms import LoginForm
+from .forms import LoginForm, SearchForm
+
+
+def none_url(request):
+    return HttpResponseRedirect('/login/')
 
 
 def user_login(request):
@@ -41,16 +44,21 @@ def index(request):
     context = {
         'newses': newses,
         'logout': logout,
-        'search': search,
     }
     return render(request, "index.html", context)
 
 
 def search(request):
-    searchname = request.POST['search']
-    if searchname is not None:
-        post = News.objects.get(title=searchname)
-        return post
+    try:
+        search_query = request.GET.get('search', '')
+        posts = News.objects.filter(title__icontains=search_query)
+    except:
+        pass
+
+    context = {
+        'post_list': posts
+    }
+    return render(request, "search.html", context)
 
 
 def news(request, news_id):
@@ -64,7 +72,6 @@ def news(request, news_id):
 
 def about(request):
     context = {
-
 
     }
     return render(request, "about.html", context)
