@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+    {% block content %}
+        <div class="content">
+            {% for post in post_list %}
+                {{ post.title }}
+            {% endfor %}
+        </div>
+    {% endblock %}
+</body>
+</html>

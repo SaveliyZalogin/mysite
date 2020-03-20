@@ -31,9 +31,9 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                       </div>
                     </div>
-                    <form action="{% url 'search' %}">
-                        <input type="text" name="search">
-                        <input type="submit">
+                    <form class="form-inline" action="{% url 'search' %}">
+                        <input class="form-control mr-sm-2" type="text" name="search">
+                        <input class="btn btn-outline-success" type="submit" value="Find">
                     </form>
                     <a class="btn btn-dark nav-btn" role="button" href="{% url 'login' %}" data-toggle="{{ logout }}">Log out</a>
                 </ul>

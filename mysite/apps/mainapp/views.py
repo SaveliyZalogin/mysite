@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import News
+from .models import News, KeyWords
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth import authenticate
@@ -41,6 +41,7 @@ def logout(request):
 
 def index(request):
     newses = News.objects.all()
+    keywords = KeyWords.objects.all()
     context = {
         'newses': newses,
         'logout': logout,
@@ -63,10 +64,14 @@ def search(request):
 
 def news(request, news_id):
     news = News.objects.get(id=news_id)
+    keywords = KeyWords.objects.all()
+    for keyword in keywords:
+        if keyword in news.key_word.all():
+            word = keyword
     context = {
         'new': news,
-
-    }
+        'key': word,
+        }
     return render(request, "news.html", context)
 
 
